@@ -1,0 +1,13 @@
+package ma.enset.incidentdesk.repository;
+
+import ma.enset.incidentdesk.entity.IncidentComment;
+import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface IncidentCommentRepository extends JpaRepository<IncidentComment, Long> {
+
+    @EntityGraph(attributePaths = "author")
+    List<IncidentComment> findByIncident_IdOrderByCreatedAtAscIdAsc(Long incidentId);
+}
