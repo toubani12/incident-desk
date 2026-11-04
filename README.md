@@ -8,6 +8,14 @@ Application web de **déclaration et de suivi des incidents informatiques et de 
 - **Frontend** : Next.js 16 (React 19) · Axios · interface sombre « ember » (noir + vagues rouge braise)
 - Trois rôles : **EMPLOYEE**, **TECHNICIAN**, **ADMIN**, contrôlés à la fois par URL, par `@PreAuthorize` et par donnée (propriétaire / technicien affecté).
 
+## Démonstration vidéo
+
+Scénario complet rejoué de bout en bout (employé, technicien, administrateur) :
+
+<video src="https://github.com/toubani12/incident-desk/raw/main/docs/demo/demo-scenario.webm" controls muted width="100%"></video>
+
+▶️ Si le lecteur ne s'affiche pas : [télécharger / ouvrir la vidéo](docs/demo/demo-scenario.webm).
+
 ---
 
 ## 1. Structure du dépôt
