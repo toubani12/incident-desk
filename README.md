@@ -12,9 +12,10 @@ Application web de **déclaration et de suivi des incidents informatiques et de 
 
 Scénario complet rejoué de bout en bout (employé, technicien, administrateur) :
 
-<video src="https://github.com/toubani12/incident-desk/raw/main/docs/demo/demo-scenario.webm" controls muted width="100%"></video>
 
-▶️ Si le lecteur ne s'affiche pas : [télécharger / ouvrir la vidéo](docs/demo/demo-scenario.webm).
+
+[demo-scenario.webm](https://github.com/user-attachments/assets/553aef62-b2c2-4e87-a3c6-c5b56e04ceca)
+
 
 ---
 
