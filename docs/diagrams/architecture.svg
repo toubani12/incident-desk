@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" width="1240" height="780" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2C3E50"/>
+    </marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/>
+    </marker>
+    <style>
+      .zone { fill: #F8FBFD; stroke: #BDC3C7; stroke-width: 1.3; }
+      .ztitle { fill: #2C3E50; font-weight: 700; font-size: 15px; }
+      .zsub { fill: #7F8C8D; font-size: 11.5px; }
+      .blk { fill: #ffffff; stroke: #BDC3C7; stroke-width: 1.1; }
+      .navy { fill: #2C3E50; }
+      .w { fill: #ffffff; font-size: 12px; font-weight: 700; }
+      .w2 { fill: #D6E4EE; font-size: 10.5px; }
+      .h { fill: #1A5276; font-size: 12.5px; font-weight: 700; }
+      .t { fill: #2C3E50; font-size: 11.5px; }
+      .s { fill: #7F8C8D; font-size: 10.5px; }
+      .red { fill: #C0392B; font-weight: 700; font-size: 11.5px; }
+      .ln { fill: none; stroke: #2C3E50; stroke-width: 1.6; }
+      .lnr { fill: none; stroke: #C0392B; stroke-width: 1.8; }
+      .lnd { fill: none; stroke: #7F8C8D; stroke-width: 1.3; stroke-dasharray: 5 4; }
+      .chip { fill: #EBF5FB; stroke: #AFC4D6; stroke-width: 1; }
+    </style>
+  </defs>
+  <rect width="1240" height="780" fill="#ffffff"/>
+
+  <!-- ================= Frontend ================= -->
+  <rect class="zone" x="30" y="40" width="370" height="580" rx="10"/>
+  <text class="ztitle" x="50" y="70">Frontend — Next.js 16 / React 19</text>
+  <text class="zsub" x="50" y="88">Navigateur · http://localhost:3000</text>
+
+  <rect class="blk" x="50" y="104" width="330" height="86" rx="6"/>
+  <text class="h" x="64" y="126">Pages (app/ → src/views/)</text>
+  <text class="t" x="64" y="146">Login · Register · Dashboard · Profile</text>
+  <text class="t" x="64" y="163">MyIncidents · NewIncident · IncidentDetails</text>
+  <text class="t" x="64" y="180">AssignedIncidents · AdminUsers · AdminIncidents</text>
+
+  <rect class="blk" x="50" y="202" width="330" height="70" rx="6"/>
+  <text class="h" x="64" y="224">ProtectedRoute · RoleRoute</text>
+  <text class="t" x="64" y="243">Redirection /login si pas de JWT,</text>
+  <text class="t" x="64" y="260">page 403 si rôle non autorisé (confort UX)</text>
+
+  <rect class="blk" x="50" y="284" width="330" height="52" rx="6"/>
+  <text class="h" x="64" y="306">AuthContext</text>
+  <text class="t" x="64" y="325">utilisateur courant : id, nom, email, rôle</text>
+
+  <rect class="blk" x="50" y="348" width="330" height="152" rx="6" stroke="#C0392B" stroke-width="1.6"/>
+  <text class="h" x="64" y="370">services/api.js — instance Axios</text>
+  <text class="red" x="64" y="392">interceptor requête</text>
+  <text class="t" x="64" y="409">ajoute Authorization: Bearer &lt;JWT&gt;</text>
+  <text class="red" x="64" y="431">interceptor réponse (401)</text>
+  <text class="t" x="64" y="448">1. POST /auth/refresh avec le refresh token</text>
+  <text class="t" x="64" y="465">2. sinon : supprimer le JWT, rediriger</text>
+  <text class="t" x="64" y="482">   vers /login?expired=1 (message affiché)</text>
+
+  <rect class="blk" x="50" y="512" width="330" height="90" rx="6"/>
+  <text class="h" x="64" y="534">localStorage</text>
+  <text class="t" x="64" y="553">incidentdesk.token (access, 5 min)</text>
+  <text class="t" x="64" y="570">incidentdesk.refreshToken (24 h, rotation)</text>
+  <text class="t" x="64" y="587">incidentdesk.user</text>
+
+  <!-- ================= HTTP ================= -->
+  <path class="lnr" d="M400,300 H466" marker-end="url(#ar)"/>
+  <path class="ln" d="M466,350 H404" marker-end="url(#a)"/>
+  <text class="red" x="406" y="254" font-size="11">HTTP</text>
+  <text class="red" x="406" y="268" font-size="11">JSON</text>
+  <text class="s" x="406" y="284">Bearer</text>
+  <text class="s" x="406" y="296">JWT</text>
+  <text class="s" x="406" y="372">JSON</text>
+  <text class="s" x="406" y="386">ou erreur</text>
+
+  <!-- ================= Backend ================= -->
+  <rect class="zone" x="470" y="40" width="740" height="580" rx="10"/>
+  <text class="ztitle" x="490" y="70">Backend — Spring Boot 3.5 · Spring Security 6 · JJWT</text>
+  <text class="zsub" x="490" y="88">API REST · http://localhost:8085 · SessionCreationPolicy.STATELESS · CSRF désactivé · CORS :3000 / :5173</text>
+
+  <!-- Security chain -->
+  <rect x="490" y="100" width="700" height="112" rx="8" fill="#FDF2F0" stroke="#E6B0AA"/>
+  <text class="red" x="504" y="120">SecurityFilterChain</text>
+  <rect class="navy" x="504" y="130" width="148" height="70" rx="6"/>
+  <text class="w" x="516" y="152">CorsFilter</text>
+  <text class="w2" x="516" y="170">origines autorisées</text>
+  <text class="w2" x="516" y="185">pré-requêtes OPTIONS</text>
+  <rect class="navy" x="670" y="130" width="160" height="70" rx="6"/>
+  <text class="w" x="682" y="152">JwtFilter</text>
+  <text class="w2" x="682" y="170">signature, exp, iss, rôle</text>
+  <text class="w2" x="682" y="185">→ SecurityContextHolder</text>
+  <rect class="navy" x="848" y="130" width="168" height="70" rx="6"/>
+  <text class="w" x="860" y="152">AuthorizationFilter</text>
+  <text class="w2" x="860" y="170">/auth/**, /h2-console/** : public</text>
+  <text class="w2" x="860" y="185">/api/admin/** : hasRole(ADMIN)</text>
+  <rect class="navy" x="1034" y="130" width="142" height="70" rx="6"/>
+  <text class="w" x="1046" y="152">Erreurs sécurité</text>
+  <text class="w2" x="1046" y="170">EntryPoint → 401</text>
+  <text class="w2" x="1046" y="185">DeniedHandler → 403</text>
+  <path class="ln" d="M652,165 H668" marker-end="url(#a)"/>
+  <path class="ln" d="M830,165 H846" marker-end="url(#a)"/>
+  <path class="ln" d="M1016,165 H1032" marker-end="url(#a)"/>
+
+  <!-- Controllers -->
+  <path class="ln" d="M760,212 V238" marker-end="url(#a)"/>
+  <rect class="blk" x="490" y="240" width="540" height="88" rx="8"/>
+  <text class="h" x="504" y="262">Contrôleurs REST — @PreAuthorize (@EnableMethodSecurity) · @Valid</text>
+  <rect class="chip" x="504" y="274" width="98" height="40" rx="5"/><text class="t" x="512" y="291">AuthController</text><text class="s" x="512" y="306">/auth/**</text>
+  <rect class="chip" x="608" y="274" width="98" height="40" rx="5"/><text class="t" x="616" y="291">Profile</text><text class="s" x="616" y="306">/api/profile</text>
+  <rect class="chip" x="712" y="274" width="104" height="40" rx="5"/><text class="t" x="720" y="291">Incident</text><text class="s" x="720" y="306">/api/incidents</text>
+  <rect class="chip" x="822" y="274" width="98" height="40" rx="5"/><text class="t" x="830" y="291">Admin</text><text class="s" x="830" y="306">/api/admin/**</text>
+  <rect class="chip" x="926" y="274" width="94" height="40" rx="5"/><text class="t" x="934" y="291">Dashboard</text><text class="s" x="934" y="306">/api/dashboard</text>
+
+  <!-- Services -->
+  <path class="ln" d="M760,328 V356" marker-end="url(#a)"/>
+  <rect class="blk" x="490" y="358" width="540" height="124" rx="8"/>
+  <text class="h" x="504" y="380">Services — règles métier et contrôle par donnée</text>
+  <text class="t" x="504" y="400">AuthService : AuthenticationManager + DaoAuthenticationProvider + BCrypt</text>
+  <text class="t" x="504" y="418">JwtService (HS256 : sub, role, iat, exp) · RefreshTokenService (rotation)</text>
+  <text class="t" x="504" y="436">IncidentService : propriétaire / technicien affecté via SecurityContextHolder,</text>
+  <text class="t" x="504" y="454">transitions de statut, CLOSED terminal, historique + notes</text>
+  <text class="t" x="504" y="472">ProfileService · AdminUserService · DashboardService</text>
+
+  <!-- Repositories -->
+  <path class="ln" d="M760,482 V508" marker-end="url(#a)"/>
+  <rect class="blk" x="490" y="510" width="540" height="90" rx="8"/>
+  <text class="h" x="504" y="532">Repositories — Spring Data JPA / Hibernate</text>
+  <text class="t" x="504" y="552">UserRepository · IncidentRepository (@EntityGraph, Specification)</text>
+  <text class="t" x="504" y="570">IncidentHistoryRepository · IncidentCommentRepository</text>
+  <text class="t" x="504" y="588">RefreshTokenRepository</text>
+
+  <!-- Exception handler -->
+  <rect x="1050" y="240" width="140" height="360" rx="8" fill="#FEF9E7" stroke="#F0D9A0"/>
+  <text class="h" x="1062" y="264">GlobalException</text>
+  <text class="h" x="1062" y="280">Handler</text>
+  <text class="s" x="1062" y="298">@RestControllerAdvice</text>
+  <text class="t" x="1062" y="330">400 validation</text>
+  <text class="t" x="1062" y="350">401 identifiants</text>
+  <text class="t" x="1062" y="370">403 accès interdit</text>
+  <text class="t" x="1062" y="390">    / compte désactivé</text>
+  <text class="t" x="1062" y="410">404 introuvable</text>
+  <text class="t" x="1062" y="430">409 email utilisé</text>
+  <text class="t" x="1062" y="450">    / incident clôturé</text>
+  <text class="s" x="1062" y="490">{ status, error,</text>
+  <text class="s" x="1062" y="506">  message, path,</text>
+  <text class="s" x="1062" y="522">  errors }</text>
+  <path class="lnd" d="M1030,300 H1048" marker-end="url(#a)"/>
+  <path class="lnd" d="M1030,420 H1048" marker-end="url(#a)"/>
+
+  <!-- Database -->
+  <path class="ln" d="M760,600 V650" marker-end="url(#a)"/>
+  <g transform="translate(640,652)">
+    <ellipse cx="120" cy="12" rx="120" ry="12" fill="#2C3E50"/>
+    <rect x="0" y="12" width="240" height="70" fill="#2C3E50"/>
+    <ellipse cx="120" cy="82" rx="120" ry="12" fill="#1A5276"/>
+    <text class="w" x="120" y="44" text-anchor="middle">H2 (mémoire, par défaut)</text>
+    <text class="w2" x="120" y="64" text-anchor="middle">ou MySQL (profil « mysql »)</text>
+  </g>
+  <text class="s" x="40" y="660">Flux d'authentification :</text>
+  <text class="t" x="40" y="680">POST /auth/login → AuthenticationManager vérifie email + BCrypt + enabled</text>
+  <text class="t" x="40" y="698">→ JwtService émet l'access token (5 min) + refresh token opaque (24 h)</text>
+  <text class="t" x="40" y="716">→ chaque requête /api/** porte « Authorization: Bearer &lt;JWT&gt; » lu par JwtFilter</text>
+  <text class="t" x="40" y="734">→ rôle (URL + @PreAuthorize) puis propriétaire (service) avant tout accès aux données</text>
+</svg>
